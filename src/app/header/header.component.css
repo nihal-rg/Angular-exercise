@@ -12,6 +12,10 @@
   color: white;
 }
 
+.navbar-header {
+  transform: translateY(-5px);
+}
+
 .user-records {
   display: flex;
   gap: 3px;
@@ -65,9 +69,11 @@ li {
   color: #5d5fef;
   border-bottom: 2px solid #5d5fef;
   height: 63px;
+  transition-duration: 0.3s;
 }
 
 .user {
   color: #a1a1a1;
   height: 63px;
+  transition-duration: 0.3s;
 }
