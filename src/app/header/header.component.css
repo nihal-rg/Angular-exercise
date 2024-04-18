@@ -1,0 +1,73 @@
+@font-face {
+  font-family: readex-pro;
+  src: url(../../assets/fonts/ReadexPro-Medium.ttf);
+}
+
+.navbar-brand {
+  width: 100px;
+  margin-top: 8px;
+  height: 28px;
+  font-size: 16px;
+  font-family: "readex-pro";
+  color: white;
+}
+
+.user-records {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.container {
+  width: 1600px;
+  height: 64px;
+  border-bottom: 2px solid #cecffa;
+}
+
+.user-text {
+  color: #5d5fef;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 2px;
+  min-width: 55px;
+  height: 28px;
+  background-image: linear-gradient(
+    261.69deg,
+    #5d5fef 1.42%,
+    #b95ec2 136.91%,
+    #ef5da8 219.23%
+  );
+}
+
+.nav.navbar-nav.navbar-right {
+  width: 221px;
+  height: 63px;
+}
+
+.icon {
+  width: 5px;
+  height: 12px;
+  margin-left: 4px;
+  transform: translateY(-4px);
+}
+
+li {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23.46px;
+}
+
+.dashboard {
+  color: #5d5fef;
+  border-bottom: 2px solid #5d5fef;
+  height: 63px;
+}
+
+.user {
+  color: #a1a1a1;
+  height: 63px;
+}

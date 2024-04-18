@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #cecffa;
+  height: 158px;
+  width: 374px;
+  margin-top: 64px;
+  margin-left: 124px;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+button {
+  align-self: last baseline;
+  color: #ef5da8;
+  line-height: 18.77px;
+  border: 1px solid #cecffa;
+  padding: 8px, 16px, 8px, 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  width: 132px;
+  height: 35px;
+  letter-spacing: 1%;
+  font-size: 16px;
+  background-color: white;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: #ef5da8;
+  color: white;
+  border-color: white;
+}
+
+.container-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 28px;
+  height: 53px;
+  padding-left: 5px;
+  border-bottom: 2px solid #cecffa;
+}
+
+.dashboard-view {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 1600px;
+}
