@@ -9,10 +9,10 @@ import { Users } from "./user.model";
 })
 export class DashboardViewComponent implements OnInit {
   users: Users[] = [
-    new Users("Mike", "Wheeler", 16850011),
-    new Users("Dustin", "Henderson", 17469805),
-    new Users("Lucas", "Sinclair", 15678360),
-    new Users("Will", "Byers", 18273800),
+    { firstName: "Mike", lastName: "Wheeler", id: 16850011 },
+    { firstName: "Dustin", lastName: "Henderson", id: 17469805 },
+    { firstName: "Lucas", lastName: "Sinclair", id: 15678360 },
+    { firstName: "Will", lastName: "Byers", id: 18273800 },
   ];
 
   constructor() {}
