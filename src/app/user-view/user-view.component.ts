@@ -3,6 +3,7 @@ import { UserDetailsComponent } from "../shared/user-details/user-details.compon
 import { UserDetailsService } from "../shared/user-details.service";
 import { Users } from "../shared/user.interface";
 import { Subscription } from "rxjs";
+import { AddUserComponent } from "../add-user/add-user.component";
 
 @Component({
   selector: "app-user-view",
@@ -16,7 +17,6 @@ export class UserViewComponent implements OnInit {
   container!: ViewContainerRef;
 
   constructor(private userDetailService: UserDetailsService) {}
-  buttonClicked = false;
   users = this.userDetailService.users;
   userValue = this.users.value;
 
@@ -28,8 +28,11 @@ export class UserViewComponent implements OnInit {
     );
   }
 
+  onAdd() {
+    this.container.createComponent(AddUserComponent);
+  }
+
   onClick(user: Users) {
-    this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());

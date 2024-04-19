@@ -18,7 +18,7 @@ export class UserDetailsComponent implements OnInit {
   isSaving!: boolean;
 
   constructor(
-    private user: UserDetailsService,
+    private userDetailsService: UserDetailsService,
     private route: Router
   ) {}
   userFirstName = sessionStorage.getItem("First Name");
@@ -34,9 +34,11 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.closeButton = false;
-    this.stateSubscription = this.user.users.subscribe((state) => {
-      this.state = state;
-    });
+    this.stateSubscription = this.userDetailsService.users.subscribe(
+      (state) => {
+        this.state = state;
+      }
+    );
     this.editForm = new FormGroup({
       firstname: new FormControl(null, Validators.required),
       lastname: new FormControl(null, Validators.required),
@@ -61,11 +63,14 @@ export class UserDetailsComponent implements OnInit {
       this.closeButton = true;
       this.userFirstName = this.editForm.value["firstname"];
       this.userLastName = this.editForm.value["lastname"];
-      for (let i = 0; i < this.user.users.value.length; i++) {
-        if (this.user.users.value[i]["id"].toString() === this.userId) {
-          this.user.users.value[i]["firstName"] =
+      for (let i = 0; i < this.userDetailsService.users.value.length; i++) {
+        if (
+          this.userDetailsService.users.value[i]["id"].toString() ===
+          this.userId
+        ) {
+          this.userDetailsService.users.value[i]["firstName"] =
             this.editForm.value["firstname"];
-          this.user.users.value[i]["lastName"] =
+          this.userDetailsService.users.value[i]["lastName"] =
             this.editForm.value["lastname"];
         }
       }

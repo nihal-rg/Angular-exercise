@@ -12,10 +12,14 @@
   </div>
   <div>
     <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a class="dashboard" (click)="goToDashboard()">Dashboard</a>
+      <li role="presentation">
+        <a class="dashboard" routerLinkActive="active" routerLink="homepage"
+          >Dashboard</a
+        >
       </li>
-      <li><a class="user" (click)="goToUser()">User</a></li>
+      <li role="presentation">
+        <a class="user" routerLinkActive="active" routerLink="user">User</a>
+      </li>
     </ul>
   </div>
 </div>

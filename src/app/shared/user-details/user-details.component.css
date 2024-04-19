@@ -74,9 +74,13 @@ input.ng-invalid.ng-touched {
   border: 1px solid #e24141;
 }
 
+.input-details {
+  width: fit-content;
+}
+
 .form-input {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .cancel-button {

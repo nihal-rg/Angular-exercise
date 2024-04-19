@@ -66,14 +66,19 @@ li {
 }
 
 .dashboard {
-  color: #5d5fef;
-  border-bottom: 2px solid #5d5fef;
-  height: 63px;
-  transition-duration: 0.3s;
+  color: #a1a1a1;
+  height: 64px;
+  transition-duration: 0.1s;
 }
 
 .user {
   color: #a1a1a1;
-  height: 63px;
-  transition-duration: 0.3s;
+  height: 64px;
+  width: 85px;
+  transition-duration: 0.1s;
+}
+
+.active {
+  color: #5d5fef;
+  border-bottom: 2px solid #5d5fef;
 }
