@@ -88,6 +88,11 @@ input.ng-invalid.ng-touched {
   border: 1px solid #cecffa;
   border-radius: 6px;
   font-weight: 600;
+  transition-duration: 0.3s;
+}
+
+.cancel-button:hover {
+  border: 1px solid #ef5da8;
 }
 
 .save-button {
@@ -99,6 +104,11 @@ input.ng-invalid.ng-touched {
   border: none;
   border-radius: 6px;
   font-weight: 600;
+  transition-duration: 0.3s;
+}
+
+.save-button:hover {
+  border: 1px solid #cecffa;
 }
 
 .save-button:disabled {

@@ -1,28 +1,27 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
-
-import { UserDetailsService } from "../shared/user-details.service";
-import { Subscription } from "rxjs";
-import { Users } from "../shared/user.interface";
 import { UserDetailsComponent } from "../shared/user-details/user-details.component";
+import { UserDetailsService } from "../shared/user-details.service";
+import { Users } from "../shared/user.interface";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: "app-dashboard-view",
-  templateUrl: "./dashboard-view.component.html",
-  styleUrls: ["./dashboard-view.component.css"],
+  selector: "app-user-view",
+  templateUrl: "./user-view.component.html",
+  styleUrls: ["./user-view.component.css"],
 })
-export class DashboardViewComponent implements OnInit {
+export class UserViewComponent implements OnInit {
   userSubscription!: Subscription;
   userName!: Users[];
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
-  constructor(private userDetailsService: UserDetailsService) {}
-
-  users = this.userDetailsService.users;
+  constructor(private userDetailService: UserDetailsService) {}
+  buttonClicked = false;
+  users = this.userDetailService.users;
   userValue = this.users.value;
 
   ngOnInit(): void {
-    this.userSubscription = this.userDetailsService.users.subscribe(
+    this.userSubscription = this.userDetailService.users.subscribe(
       (userName) => {
         this.userName = userName;
       }
@@ -30,6 +29,7 @@ export class DashboardViewComponent implements OnInit {
   }
 
   onClick(user: Users) {
+    this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());
