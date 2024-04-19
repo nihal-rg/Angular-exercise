@@ -8,10 +8,23 @@ import { HeaderComponent } from "./header/header.component";
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { UserDetailsComponent } from "./shared/user-details/user-details.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent, DashboardViewComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, HttpClientModule],
+  declarations: [
+    AppComponent,
+    DashboardViewComponent,
+    HeaderComponent,
+    UserDetailsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
