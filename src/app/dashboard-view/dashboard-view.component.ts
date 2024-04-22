@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 
 import { UserDetailsService } from "../shared/user-details.service";
-import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
-import { Users } from "../shared/user.interface";
+import { User } from "../shared/user.interface";
 import { UserDetailsComponent } from "../shared/user-details/user-details.component";
 
 @Component({
@@ -13,7 +12,7 @@ import { UserDetailsComponent } from "../shared/user-details/user-details.compon
 })
 export class DashboardViewComponent implements OnInit {
   userSubscription!: Subscription;
-  userName!: Users[];
+  userName!: User[];
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
@@ -28,7 +27,7 @@ export class DashboardViewComponent implements OnInit {
     });
   }
 
-  onClick(user: Users) {
+  onClick(user: User) {
     this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
