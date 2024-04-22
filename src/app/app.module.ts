@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { UserViewComponent } from "./user-view/user-view.component";
 import { AddUserComponent } from "./add-user/add-user.component";
 import { ShortenPipe } from "./dashboard-view/shorten.pipe";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EmptyComponent } from './empty/empty.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ShortenPipe } from "./dashboard-view/shorten.pipe";
     UserViewComponent,
     AddUserComponent,
     ShortenPipe,
+    PageNotFoundComponent,
+    EmptyComponent,
   ],
   imports: [
     BrowserModule,
