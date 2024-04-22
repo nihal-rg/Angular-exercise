@@ -32,8 +32,8 @@
               class="form-control"
               type="text"
               id="first-name"
+              [ngModel]="userFirstName"
               formControlName="firstname"
-              required
             />
             <span class="helper-block" *ngIf="getEditFormInvalid('firstname')"
               >This field is required.</span
@@ -48,8 +48,8 @@
               class="form-control"
               type="text"
               id="last-name"
+              [ngModel]="userLastName"
               formControlName="lastname"
-              required
             />
             <span class="helper-block" *ngIf="getEditFormInvalid('lastname')"
               >This field is required.</span
