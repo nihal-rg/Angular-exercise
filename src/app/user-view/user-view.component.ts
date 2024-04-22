@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { UserDetailsComponent } from "../shared/user-details/user-details.component";
 import { UserDetailsService } from "../shared/user-details.service";
-import { Users } from "../shared/user.interface";
+import { User } from "../shared/user.interface";
 import { Subscription } from "rxjs";
 import { AddUserComponent } from "../add-user/add-user.component";
 
@@ -12,7 +12,7 @@ import { AddUserComponent } from "../add-user/add-user.component";
 })
 export class UserViewComponent implements OnInit {
   userSubscription!: Subscription;
-  userName!: Users[];
+  userName!: User[];
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
@@ -32,7 +32,7 @@ export class UserViewComponent implements OnInit {
     this.container.createComponent(AddUserComponent);
   }
 
-  onClick(user: Users) {
+  onClick(user: User) {
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());
