@@ -8,17 +8,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  constructor(
-    private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
-  ) {
-    this.matIconRegistry.addSvgIcon(
-      "user",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(
-        "../../assets/icon/user-records.icon.svg"
-      )
-    );
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

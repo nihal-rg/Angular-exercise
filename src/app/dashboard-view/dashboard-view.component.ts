@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Users } from "./user.model";
+import { User } from "./user.model";
 
 @Component({
   selector: "app-dashboard-view",
@@ -8,7 +8,7 @@ import { Users } from "./user.model";
   styleUrls: ["./dashboard-view.component.css"],
 })
 export class DashboardViewComponent implements OnInit {
-  users: Users[] = [
+  users: User[] = [
     { firstName: "Mike", lastName: "Wheeler", id: 16850011 },
     { firstName: "Dustin", lastName: "Henderson", id: 17469805 },
     { firstName: "Lucas", lastName: "Sinclair", id: 15678360 },
