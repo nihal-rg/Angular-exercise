@@ -19,7 +19,6 @@
                 id="first-name"
                 formControlName="firstName"
                 [(ngModel)]="firstName"
-                required
               />
               <span class="helper-block" *ngIf="getEditFormInvalid('firstName')"
                 >This field is required.</span
@@ -36,7 +35,6 @@
                 id="last-name"
                 formControlName="lastName"
                 [(ngModel)]="lastName"
-                required
               />
               <span class="helper-block" *ngIf="getEditFormInvalid('lastName')"
                 >This field is required.</span
@@ -62,6 +60,9 @@
         </div>
 
         <br />
+        <span class="helper-block" *ngIf="userExists"
+          >User with this ID already exists.</span
+        >
         <div class="add-buttons">
           <button class="cancel-button" (click)="onClose()">Cancel</button>
           <button

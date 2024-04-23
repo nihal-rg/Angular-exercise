@@ -17,6 +17,7 @@ export class AddUserComponent implements OnInit {
   closeButton!: boolean;
   isSaving!: boolean;
   addForm!: FormGroup;
+  userExists!: boolean;
 
   constructor(private userDetailsService: UserDetailsService) {}
 
@@ -24,7 +25,11 @@ export class AddUserComponent implements OnInit {
     this.addForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      id: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      id: new FormControl(null, [
+        Validators.required,
+        Validators.min(10000000),
+        Validators.max(99999999),
+      ]),
     });
   }
 
@@ -40,10 +45,23 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
+    let isUserIdRepeated = false;
+    for (let i = 0; i < this.userDetailsService.users.value.length; i++) {
+      if (this.userDetailsService.users.value[i]["id"] === this.id) {
+        isUserIdRepeated = true;
+        break;
+      }
+    }
     this.isSaving = true;
     setTimeout(() => {
-      this.closeButton = true;
-      this.userDetailsService.users.value.push(this.addForm.value);
+      if (isUserIdRepeated) {
+        this.closeButton = false;
+        this.userExists = true;
+        this.isSaving = false;
+      } else {
+        this.closeButton = true;
+        this.userDetailsService.users.value.push(this.addForm.value);
+      }
     }, 2000);
   }
 }
