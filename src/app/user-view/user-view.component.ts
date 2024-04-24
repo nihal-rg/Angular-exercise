@@ -17,15 +17,14 @@ export class UserViewComponent implements OnInit {
 
   constructor(private userDetailService: UserDetailsService) {}
   buttonClicked = false;
-  users = this.userDetailService.users;
-  userValue = this.users.value;
+  users = this.userDetailService.userDetails();
 
   ngOnInit(): void {
-    this.userSubscription = this.userDetailService.users.subscribe(
-      (userName) => {
+    this.userSubscription = this.userDetailService
+      .updateUser()
+      .subscribe((userName) => {
         this.userName = userName;
-      }
-    );
+      });
   }
 
   onClick(user: User) {
