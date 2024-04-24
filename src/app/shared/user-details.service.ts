@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { User } from "./user.interface";
 
 @Injectable({
@@ -17,5 +17,9 @@ export class UserDetailsService {
 
   userDetails(): User[] {
     return this.users.value;
+  }
+
+  updateUser(): Observable<User[]> {
+    return this.users.pipe();
   }
 }

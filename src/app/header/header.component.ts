@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  goToDashboard() {
+  goToDashboard(): void {
     this.route.navigate(["homepage"]);
   }
 }

@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 
 import { UserDetailsService } from "../shared/user-details.service";
 import { Subscription } from "rxjs";
@@ -21,16 +27,20 @@ export class DashboardViewComponent implements OnInit {
   users = this.user.userDetails();
 
   ngOnInit(): void {
-    this.userSubscription = this.user.user.subscribe((userName) => {
+    this.userSubscription = this.user.updateUser().subscribe((userName) => {
       this.userName = userName;
     });
   }
 
-  onClick(user: User) {
+  onClick(user: User): void {
     this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());
     this.container.createComponent(UserDetailsComponent);
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }
