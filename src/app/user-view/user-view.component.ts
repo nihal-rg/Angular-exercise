@@ -3,6 +3,7 @@ import { UserDetailsComponent } from "../shared/user-details/user-details.compon
 import { UserDetailsService } from "../shared/user-details.service";
 import { User } from "../shared/user.interface";
 import { Subscription } from "rxjs";
+import { AddUserComponent } from "../add-user/add-user.component";
 
 @Component({
   selector: "app-user-view",
@@ -27,8 +28,11 @@ export class UserViewComponent implements OnInit {
       });
   }
 
+  onAdd() {
+    this.container.createComponent(AddUserComponent);
+  }
+
   onClick(user: User) {
-    this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());

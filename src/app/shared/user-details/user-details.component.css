@@ -13,24 +13,23 @@
   top: 30vh;
   left: 30vw;
   width: 728px;
-  height: 321px;
   border-radius: 6px;
   background-color: white;
+  padding-bottom: 20px;
   z-index: 100;
 }
 
 .buttons {
-  position: absolute;
   display: flex;
   gap: 20px;
   align-self: flex-end;
-  transform: translateY(140px);
 }
 
 .header {
   font-size: 24px;
   font-weight: 400;
   min-height: 53px;
+  width: 650px;
   padding-bottom: 18px;
   border-bottom: 1px solid #cecffa;
 }
@@ -74,9 +73,13 @@ input.ng-invalid.ng-touched {
   border: 1px solid #e24141;
 }
 
+.input-details {
+  width: fit-content;
+}
+
 .form-input {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .cancel-button {

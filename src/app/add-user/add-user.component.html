@@ -1,0 +1,85 @@
+<div class="page-content" *ngIf="!closeButton">
+  <div class="backdrop"></div>
+  <div class="containers" *ngIf="!isSaving">
+    <div class="header">
+      <h1>
+        Add New User Details
+        <div class="close" (click)="onClose()"></div>
+      </h1>
+    </div>
+    <div class="edit-details">
+      <form class="form-details" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <div class="input-details">
+          <div class="form-input">
+            <label for="first-name" class="label">First Name:</label>
+            <div>
+              <input
+                class="form-control"
+                type="text"
+                id="first-name"
+                formControlName="firstName"
+                [(ngModel)]="firstName"
+              />
+              <span class="helper-block" *ngIf="getEditFormInvalid('firstName')"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-input">
+            <label for="last-name" class="label">Last Name:</label>
+            <div>
+              <input
+                class="form-control"
+                type="text"
+                id="last-name"
+                formControlName="lastName"
+                [(ngModel)]="lastName"
+              />
+              <span class="helper-block" *ngIf="getEditFormInvalid('lastName')"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+          <br />
+          <div class="form-input">
+            <label for="id-number" class="label">ID:</label>
+            <div>
+              <input
+                class="form-control"
+                type="number"
+                id="id-number"
+                formControlName="id"
+                [(ngModel)]="id"
+              />
+              <span class="helper-block" *ngIf="getEditFormInvalid('id')"
+                >This field is required.</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <span class="helper-block" *ngIf="userExists"
+          >User with this ID already exists.</span
+        >
+        <div class="add-buttons">
+          <button class="cancel-button" (click)="onClose()">Cancel</button>
+          <button
+            class="save-button"
+            type="submit"
+            [disabled]="addForm.invalid"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="lds-ring" *ngIf="isSaving">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

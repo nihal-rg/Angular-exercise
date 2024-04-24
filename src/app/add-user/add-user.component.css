@@ -1,0 +1,28 @@
+.containers {
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  width: 728px;
+  height: 419px;
+  border-radius: 6px;
+  background-color: white;
+  z-index: 100;
+  padding: 20px;
+}
+
+.input-details {
+  width: fit-content;
+}
+
+.add-buttons {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  align-self: flex-end;
+  transform: translateY(200px);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
