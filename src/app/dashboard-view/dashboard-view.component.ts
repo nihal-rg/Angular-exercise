@@ -1,21 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 
-import { User } from "./user.model";
-
+import { UserDetailsService } from "../shared/user-details.service";
 @Component({
   selector: "app-dashboard-view",
   templateUrl: "./dashboard-view.component.html",
   styleUrls: ["./dashboard-view.component.css"],
 })
 export class DashboardViewComponent implements OnInit {
-  users: User[] = [
-    { firstName: "Mike", lastName: "Wheeler", id: 16850011 },
-    { firstName: "Dustin", lastName: "Henderson", id: 17469805 },
-    { firstName: "Lucas", lastName: "Sinclair", id: 15678360 },
-    { firstName: "Will", lastName: "Byers", id: 18273800 },
-  ];
-
-  constructor() {}
+  constructor(private userDetailsService: UserDetailsService) {}
+  users = this.userDetailsService.users;
+  userValue = this.users.value;
 
   ngOnInit(): void {}
 }
