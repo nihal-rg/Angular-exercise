@@ -10,6 +10,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
 import { UserDetailsComponent } from "./shared/user-details/user-details.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     DashboardViewComponent,
     HeaderComponent,
     UserDetailsComponent,
+    UserViewComponent,
   ],
   imports: [
     BrowserModule,

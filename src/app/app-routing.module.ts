@@ -2,11 +2,16 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardViewComponent } from "./dashboard-view/dashboard-view.component";
 import { UserDetailsComponent } from "./shared/user-details/user-details.component";
+import { UserViewComponent } from "./user-view/user-view.component";
 
 const routes: Routes = [
   {
     path: "homepage",
     component: DashboardViewComponent,
+  },
+  {
+    path: "user",
+    component: UserViewComponent,
   },
 ];
 
