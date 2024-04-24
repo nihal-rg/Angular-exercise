@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
 
 import { UserDetailsService } from "../shared/user-details.service";
 import { Subscription } from "rxjs";
@@ -16,23 +22,25 @@ export class DashboardViewComponent implements OnInit {
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
-  constructor(private userDetailsService: UserDetailsService) {}
-
-  users = this.userDetailsService.users;
-  userValue = this.users.value;
+  constructor(private user: UserDetailsService) {}
+  buttonClicked = false;
+  users = this.user.userDetails();
 
   ngOnInit(): void {
-    this.userSubscription = this.userDetailsService.users.subscribe(
-      (userName) => {
-        this.userName = userName;
-      }
-    );
+    this.userSubscription = this.user.updateUser().subscribe((userName) => {
+      this.userName = userName;
+    });
   }
 
-  onClick(user: User) {
+  onClick(user: User): void {
+    this.buttonClicked = true;
     sessionStorage.setItem("First Name", user.firstName);
     sessionStorage.setItem("Last Name", user.lastName);
     sessionStorage.setItem("ID", user.id.toString());
     this.container.createComponent(UserDetailsComponent);
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }

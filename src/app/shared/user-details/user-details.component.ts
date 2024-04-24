@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { UserDetailsService } from "../user-details.service";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
@@ -17,15 +17,12 @@ export class UserDetailsComponent implements OnInit {
   editForm!: FormGroup;
   isSaving!: boolean;
 
-  constructor(
-    private user: UserDetailsService,
-    private route: Router
-  ) {}
+  constructor(private user: UserDetailsService) {}
   userFirstName = sessionStorage.getItem("First Name");
   userLastName = sessionStorage.getItem("Last Name");
   userId = sessionStorage.getItem("ID");
 
-  getEditFormInvalid(name: string) {
+  getEditFormInvalid(name: string): boolean {
     if (this.editForm.get(name)!.touched && this.editForm.get(name)!.invalid) {
       return true;
     }
@@ -34,7 +31,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.closeButton = false;
-    this.stateSubscription = this.user.users.subscribe((state) => {
+    this.stateSubscription = this.user.updateUser().subscribe((state) => {
       this.state = state;
     });
     this.editForm = new FormGroup({
@@ -43,32 +40,35 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-  onClose() {
+  onClose(): void {
     this.closeButton = true;
   }
 
-  onCancel() {
+  onCancel(): void {
     this.displayMode = true;
   }
 
-  onEdit() {
+  onEdit(): void {
     this.displayMode = false;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.isSaving = true;
     setTimeout(() => {
       this.closeButton = true;
       this.userFirstName = this.editForm.value["firstname"];
       this.userLastName = this.editForm.value["lastname"];
-      for (let i = 0; i < this.user.users.value.length; i++) {
-        if (this.user.users.value[i]["id"].toString() === this.userId) {
-          this.user.users.value[i]["firstName"] =
+      for (let i = 0; i < this.user.userDetails().length; i++) {
+        if (this.user.userDetails()[i]["id"].toString() === this.userId) {
+          this.user.userDetails()[i]["firstName"] =
             this.editForm.value["firstname"];
-          this.user.users.value[i]["lastName"] =
+          this.user.userDetails()[i]["lastName"] =
             this.editForm.value["lastname"];
         }
       }
     }, 2000);
+  }
+  ngOnDestroy() {
+    this.stateSubscription.unsubscribe();
   }
 }
