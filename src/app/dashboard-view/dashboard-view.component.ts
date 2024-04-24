@@ -8,8 +8,7 @@ import { UserDetailsService } from "../shared/user-details.service";
 })
 export class DashboardViewComponent implements OnInit {
   constructor(private userDetailsService: UserDetailsService) {}
-  users = this.userDetailsService.users;
-  userValue = this.users.value;
+  users = this.userDetailsService.userDetails();
 
   ngOnInit(): void {}
 }
