@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MatIconRegistry } from "@angular/material/icon";
-import { DomSanitizer } from "@angular/platform-browser";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -8,7 +7,11 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {}
+
+  goToDashboard(): void {
+    this.route.navigate(["homepage"]);
+  }
 }

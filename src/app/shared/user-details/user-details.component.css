@@ -1,0 +1,183 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.container {
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  width: 728px;
+  height: 321px;
+  border-radius: 6px;
+  background-color: white;
+  z-index: 100;
+}
+
+.buttons {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  align-self: flex-end;
+  transform: translateY(140px);
+}
+
+.header {
+  font-size: 24px;
+  font-weight: 400;
+  min-height: 53px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #cecffa;
+}
+
+.display-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 30px;
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.helper-block {
+  font-size: 14px;
+  color: #e24141;
+}
+
+.edit-details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+}
+
+.form-control {
+  width: 280px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #e24141;
+}
+
+.form-input {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-button {
+  color: #ef5da8;
+  background-color: white;
+  font-size: 16px;
+  width: 88px;
+  height: 35px;
+  border: 1px solid #cecffa;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.save-button {
+  color: white;
+  background-color: #ef5da8;
+  font-size: 16px;
+  width: 88px;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.save-button:disabled {
+  color: white;
+  background-color: #f5bdda;
+  font-size: 16px;
+  width: 88px;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  padding: 8px, 16px, 8px, 16px;
+  font-weight: 600;
+}
+
+.close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 30px;
+  height: 22px;
+  opacity: 1;
+}
+.close:hover {
+  opacity: 0.3;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 23px;
+  width: 2px;
+  color: black;
+  background-color: black;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: fixed;
+  top: 45vh;
+  left: 45vw;
+  z-index: 100;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #f178b6 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
