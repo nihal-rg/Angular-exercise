@@ -18,11 +18,10 @@ export class DashboardViewComponent implements OnInit {
 
   constructor(private user: UserDetailsService) {}
   buttonClicked = false;
-  users = this.user.users;
-  userValue = this.users.value;
+  users = this.user.userDetails();
 
   ngOnInit(): void {
-    this.userSubscription = this.user.users.subscribe((userName) => {
+    this.userSubscription = this.user.user.subscribe((userName) => {
       this.userName = userName;
     });
   }
