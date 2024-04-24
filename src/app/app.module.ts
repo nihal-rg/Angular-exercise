@@ -12,7 +12,7 @@ import { UserDetailsComponent } from "./shared/user-details/user-details.compone
 import { ReactiveFormsModule } from "@angular/forms";
 import { UserViewComponent } from "./user-view/user-view.component";
 import { AddUserComponent } from "./add-user/add-user.component";
-import { ShortenPipe } from "./dashboard-view/shorten.pipe";
+import { UsernamePipe } from "./dashboard-view/username.pipe";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmptyComponent } from './empty/empty.component';
 
@@ -24,7 +24,7 @@ import { EmptyComponent } from './empty/empty.component';
     UserDetailsComponent,
     UserViewComponent,
     AddUserComponent,
-    ShortenPipe,
+    UsernamePipe,
     PageNotFoundComponent,
     EmptyComponent,
   ],

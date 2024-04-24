@@ -2,7 +2,7 @@
   <div class="container" *ngFor="let user of userValue">
     <div class="container-content">
       <h4 class="user-name">
-        {{ user.firstName + " " + user.lastName | shorten }}
+        {{ user.firstName + " " + user.lastName | username }}
       </h4>
       <br />
       <button (click)="onClick(user)">View Details</button>
