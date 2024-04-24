@@ -46,8 +46,8 @@ export class AddUserComponent implements OnInit {
 
   onSubmit() {
     let isUserIdRepeated = false;
-    for (let i = 0; i < this.userDetailsService.users.value.length; i++) {
-      if (this.userDetailsService.users.value[i]["id"] === this.id) {
+    for (let i = 0; i < this.userDetailsService.userDetails().length; i++) {
+      if (this.userDetailsService.userDetails()[i]["id"] === this.id) {
         isUserIdRepeated = true;
         break;
       }
@@ -60,7 +60,7 @@ export class AddUserComponent implements OnInit {
         this.isSaving = false;
       } else {
         this.closeButton = true;
-        this.userDetailsService.users.value.push(this.addForm.value);
+        this.userDetailsService.userDetails().push(this.addForm.value);
       }
     }, 2000);
   }

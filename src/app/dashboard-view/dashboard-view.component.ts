@@ -22,14 +22,16 @@ export class DashboardViewComponent implements OnInit {
   @ViewChild("container", { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
 
-  constructor(private user: UserDetailsService) {}
+  constructor(private userDetailsService: UserDetailsService) {}
   buttonClicked = false;
-  users = this.user.userDetails();
+  users = this.userDetailsService.userDetails();
 
   ngOnInit(): void {
-    this.userSubscription = this.user.updateUser().subscribe((userName) => {
-      this.userName = userName;
-    });
+    this.userSubscription = this.userDetailsService
+      .updateUser()
+      .subscribe((userName) => {
+        this.userName = userName;
+      });
   }
 
   onClick(user: User): void {
